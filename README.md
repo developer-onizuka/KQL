@@ -24,10 +24,21 @@ LeftTable
 ```
 
 ```
-let IdentityLogonEvents = datatable (Timestamp:datetime , AccountName:string, DaviceName:string )
+let EmailEvents = datatable (Timestamp:datetime, AccountName:string, Subject:string ,MalwareFilterVerdict:string)
 [
-    datetime(2022-12-31), "Nancy", "Pelosi",
+    datetime(2022-12-31 22:59:59), "Nancy", "Hello", "Malware",
+    datetime(2022-12-31 22:59:59), "Mike", "Hello", "Malware"
 ];
-IdentityLogonEvents
-
+let IdentityLogonEvents = datatable (Timestamp:datetime , AccountName:string, DeviceName:string )
+[
+    datetime(2022-12-31 23:59:59), "Nancy", "Pelosi",
+    datetime(2022-12-31 23:59:59), "Mike", "Pence"
+];
+let MaliciousEmails = EmailEvents
+| where MalwareFilterVerdict == "Malware"
+| project TimeEmail = Timestamp, AccountName, Subject;
+MaliciousEmails
+| join (IdentityLogonEvents| project LogonTime = Timestamp, AccountName, DeviceName) on AccountName
+| where (LogonTime - TimeEmail) between (0min.. 60min)
+| take 20
 ```
