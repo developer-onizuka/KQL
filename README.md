@@ -22,3 +22,12 @@ LeftTable
 | project-rename xid = id
 | join RightTable on xid
 ```
+
+```
+let IdentityLogonEvents = datatable (Timestamp:datetime , AccountName:string, DaviceName:string )
+[
+    datetime(2022-12-31), "Nancy", "Pelosi",
+];
+IdentityLogonEvents
+
+```
