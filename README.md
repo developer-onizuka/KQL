@@ -29,7 +29,7 @@ let EmailEvents = datatable (Timestamp:datetime, AccountName:string, Subject:str
     datetime(2022-12-31 22:59:59), "Nancy", "Hello", "Malware",
     datetime(2022-12-31 22:59:59), "Mike", "Hello", "Malware"
 ];
-let IdentityLogonEvents = datatable (Timestamp:datetime , AccountName:string, DeviceName:string )
+let IdentityLogonEvents = datatable (Timestamp:datetime, AccountName:string, DeviceName:string )
 [
     datetime(2022-12-31 23:59:59), "Nancy", "Pelosi",
     datetime(2022-12-31 23:59:59), "Mike", "Pence"
