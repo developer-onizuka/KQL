@@ -1,5 +1,6 @@
 # KQL
 
+> https://security.microsoft.com/
 
 ```
 let LeftTable = datatable (key:int, value:string, id:int)
