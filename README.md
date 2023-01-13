@@ -51,6 +51,14 @@ or
 | summarize Num = count() by key, key1
 ```
 
+
+
+
+
+
+
+
+
 ```
 let EmailEvents = datatable (Timestamp:datetime, AccountName:string, Subject:string ,MalwareFilterVerdict:string)
 [
