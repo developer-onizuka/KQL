@@ -64,7 +64,7 @@ let Orders = datatable (Timestamp:datetime, From:string)
     datetime(2022-12-31 22:57:55), "Tokyo"
 ];
 Orders
-| extend LocalTime = Timestamp
+| extend LocalTime = Timestamp + 9h
 | summarize Requests = count() by bin(LocalTime, 1m)
 ```
 <br><br><br><br><br><br><br><br><br><br><br>
