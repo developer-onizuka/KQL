@@ -51,6 +51,22 @@ or
 | summarize Num = count() by key, key1
 ```
 
+```
+let Orders = datatable (Timestamp:datetime, From:string)
+[
+    datetime(2022-12-31 22:53:52), "Tokyo",
+    datetime(2022-12-31 22:53:57), "NewYork",
+    datetime(2022-12-31 22:54:55), "Tokyo",
+    datetime(2022-12-31 22:55:22), "Paris",
+    datetime(2022-12-31 22:55:50), "London",
+    datetime(2022-12-31 22:55:51), "TelAviv",
+    datetime(2022-12-31 22:55:59), "Paris",
+    datetime(2022-12-31 22:57:55), "Tokyo"
+];
+Orders
+| extend LocalTime = Timestamp
+| summarize Requests = count() by bin(LocalTime, 1m)
+```
 <br><br><br><br><br><br><br><br><br><br><br>
 
 
