@@ -83,8 +83,8 @@ Orders
 | extend LocalTime = Timestamp + 9h
 | summarize arg_max(Timestamp, *) by From
 ```
-<br><br><br><br><br><br><br><br><br><br><br>
-
+arg_max: 最大値を与える引数あるいは最大点集合 (argument of the maximum) 
+<br><br>
 
 
 
